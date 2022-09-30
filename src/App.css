@@ -1,6 +1,6 @@
-* {
+/* * {
   outline: 1px solid red;
-}
+} */
 
 .App {
   text-align: center;
@@ -27,13 +27,6 @@ button {
 
   padding: 0px, 20px, 0px, 20px;
   gap: 10px;
-}
-
-.resultadoPesquisa {
-  width: 80%;
-  align-items: center;
-  height: 2rem;
-   display: flex; 
 }
 
 input {
@@ -93,6 +86,30 @@ h3 {
   gap: 1rem;
 }
 
+.DivPesquisaInput {
+  width: 80%;
+}
+.DivPesquisaInput > div {
+  width: 100%;
+}
+
+.inputValor {
+  color: #828282;
+}
+
+.resultadoPesquisa {
+  width: 80%;
+  align-items: center;
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.resultadoPesquisa > button {
+  height: 2rem;
+  margin-right: 1rem;
+}
+
 @media (max-width: 913px) {
   .styleHeaderConteudo {
     margin-top: 1rem;
@@ -139,11 +156,15 @@ h3 {
 }
 
 @media (max-width: 550px) {
+  input {
+    width: 8rem;
+  }
   .style_nomeProduto__b-eh1 {
     font-size: 1rem;
   }
-  input {
-    width: 8rem;
+
+  .resultadoPesquisa {
+    flex-direction: column;
   }
 
   .style_imgComprar__i\+lGF {

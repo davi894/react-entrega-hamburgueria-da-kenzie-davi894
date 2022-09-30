@@ -15,11 +15,11 @@ function App() {
 
   const [inputValor, setinputValor] = useState("");
 
-  const [countProductsCart, setCountProductsCart] = useState(0);
-  console.log(inputValor);
   function buscarPorFiltragem(input) {
     const inputTratado = input.toLowerCase();
+
     setinputValor(inputTratado);
+
     const filtragem = products.filter((elem) => {
       const nomeTratado = elem.name.toLowerCase();
       const categoryTratado = elem.category.toLowerCase();
@@ -29,8 +29,34 @@ function App() {
       ) {
         return elem;
       }
+      if (inputTratado === "") {
+        return !filteredProducts.length ? (
+          <ProductsList
+            products={products}
+            setCartTotal={setCartTotal}
+            cartTotal={cartTotal}
+            currentSale={currentSale}
+            setCurrentSale={setCurrentSale}
+          />
+        ) : (
+          <div className="DivPesquisaInput">
+           {/*  <div className="resultadoPesquisa">
+              <h2>
+                Resultado para: <span className="inputValor">{inputValor}</span>
+              </h2>
+              <button>Limpar busca </button>
+            </div> */}
+            <ProductsList
+              products={filteredProducts}
+              setCartTotal={setCartTotal}
+              cartTotal={cartTotal}
+              currentSale={currentSale}
+              setCurrentSale={setCurrentSale}
+            />
+          </div>
+        );
+      }
     });
-
     setFilteredProducts(filtragem);
   }
 
@@ -68,34 +94,30 @@ function App() {
             cartTotal={cartTotal}
             currentSale={currentSale}
             setCurrentSale={setCurrentSale}
-            countProductsCart={countProductsCart}
-            setCountProductsCart={setCountProductsCart}
           />
         ) : (
-         /*  <div>
-            <div className="resultadoPesquisa">
-              <h2>Resultado para: <span>{inputValor}</span></h2>
-            </div> */
+          <div className="DivPesquisaInput">
+           {/*  <div className="resultadoPesquisa">
+              <h2>
+                Resultado para: <span className="inputValor">{inputValor}</span>
+              </h2>
+              <button>Limpar busca </button>
+            </div> */}
             <ProductsList
               products={filteredProducts}
               setCartTotal={setCartTotal}
               cartTotal={cartTotal}
               currentSale={currentSale}
               setCurrentSale={setCurrentSale}
-              countProductsCart={countProductsCart}
-              setCountProductsCart={setCountProductsCart}
             />
-         /*  </div> */
+          </div>
         )}
-
         <Cart
           cartTotal={cartTotal}
           setCartTotal={setCartTotal}
           products={products}
           currentSale={currentSale}
           setCurrentSale={setCurrentSale}
-          countProductsCart={countProductsCart}
-          setCountProductsCart={setCountProductsCart}
         />
       </section>
     </div>

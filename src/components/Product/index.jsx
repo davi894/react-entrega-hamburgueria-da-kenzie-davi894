@@ -1,21 +1,15 @@
 import style from "./style.module.css";
 
-function Product({
-  elem,
-  setCurrentSale,
-  countProductsCart,
-  setCountProductsCart,
-}) {
-
-
-  function adicionarCarrinho(idElem, count, elemnt) {
-    if (idElem === elem.id) {
-      setCurrentSale((elemCarrinho) => [...elemCarrinho, elem]);
-    }
-
-    /* if (elem === elemnt) {
-      setCountProductsCart(count);
-    } */
+function Product({ elem, setCurrentSale }) {
+  function adicionarCarrinho(idElem) {
+    setCurrentSale((elemCarrinho) => {
+      if (elemCarrinho.find((elm) => elm.id === idElem)) {
+        return elemCarrinho.map((elem) =>
+          elem.id === idElem ? { ...elem, count: elem.count + 1 } : elem
+        );
+      }
+      return [...elemCarrinho, { ...elem, count: 1 }];
+    });
   }
   return (
     <li className={style.liComprar} key={elem.id}>
@@ -28,9 +22,7 @@ function Product({
         <span className={style.preco}>R$ {elem.price}</span>
         <button
           className={style.adicionar}
-          onClick={() =>
-            adicionarCarrinho(elem.id, countProductsCart + 1, elem)
-          }
+          onClick={() => adicionarCarrinho(elem.id)}
         >
           Adicionar
         </button>

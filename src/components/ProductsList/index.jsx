@@ -8,8 +8,6 @@ function ProductsList({
   cartTotal,
   currentSale,
   setCurrentSale,
-  countProductsCart,
-  setCountProductsCart,
 }) {
 
   return (
@@ -23,8 +21,6 @@ function ProductsList({
             cartTotal={cartTotal}
             currentSale={currentSale}
             setCurrentSale={setCurrentSale}
-            countProductsCart={countProductsCart}
-            setCountProductsCart={setCountProductsCart}
           />
         );
       })}

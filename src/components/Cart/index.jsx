@@ -1,16 +1,11 @@
 import style from "./style.module.css";
 
-import { useState } from "react";
-
-function Cart({
-  currentSale,
-  setCurrentSale,
-  countProductsCart,
-  setCountProductsCart,
-}) {
+function Cart({ currentSale, setCurrentSale }) {
   const filtragemProdutosRepetidos = [...new Set(currentSale)];
 
-  /*  const [quantidade, setQuantidade] = useState(1); */
+  function retirardoCarrinho(element) {
+    console.log(element.id);
+  }
 
   function removerProduto(elmId) {
     const removerProtudoCarrinho = currentSale.filter(
@@ -53,15 +48,12 @@ function Cart({
                     >
                       Remover
                     </span>
-                  
-                    {/* <span
-                      onChange={(event) =>
-                        setQuantidade([event.target.value, elem.id])
-                      }
+                    <span
+                      onClick={() => retirardoCarrinho(elem)}
                       className={style.inputNumber}
                     >
-                      {countProductsCart}
-                    </span> */}
+                      {elem.count}
+                    </span>
                   </div>
                 </li>
               );
