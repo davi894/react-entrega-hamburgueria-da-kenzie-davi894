@@ -4,19 +4,17 @@ function Cart({ currentSale, setCurrentSale }) {
   const filtragemProdutosRepetidos = [...new Set(currentSale)];
 
   function removerProduto(elm) {
-    const teste = currentSale.map((elem) =>
+    const criarCarrinho = currentSale.map((elem) =>
       elem.id === elm.id ? { ...elem, count: elem.count - 1 } : elem
     );
 
     setCurrentSale(
-      teste.filter((elemtn) => {
+      criarCarrinho.filter((elemtn) => {
         if (elemtn.count > 0) {
           return { ...elemtn, count: elemtn.count - 1 };
         }
       })
     );
-
-    console.log(teste);
   }
 
   function removertodosOsProdutos() {
