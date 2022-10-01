@@ -3,15 +3,20 @@ import style from "./style.module.css";
 function Cart({ currentSale, setCurrentSale }) {
   const filtragemProdutosRepetidos = [...new Set(currentSale)];
 
-  function retirardoCarrinho(element) {
-    console.log(element.id);
-  }
-
-  function removerProduto(elmId) {
-    const removerProtudoCarrinho = currentSale.filter(
-      (elem) => elem.id !== elmId
+  function removerProduto(elm) {
+    const teste = currentSale.map((elem) =>
+      elem.id === elm.id ? { ...elem, count: elem.count - 1 } : elem
     );
-    setCurrentSale(removerProtudoCarrinho);
+
+    setCurrentSale(
+      teste.filter((elemtn) => {
+        if (elemtn.count > 0) {
+          return { ...elemtn, count: elemtn.count - 1 };
+        }
+      })
+    );
+
+    console.log(teste);
   }
 
   function removertodosOsProdutos() {
@@ -43,17 +48,12 @@ function Cart({ currentSale, setCurrentSale }) {
                   </div>
                   <div className={style.divRemoverItenCarrinho}>
                     <span
-                      onClick={() => removerProduto(elem.id)}
+                      onClick={() => removerProduto(elem)}
                       className={style.removerProduto}
                     >
                       Remover
                     </span>
-                    <span
-                      onClick={() => retirardoCarrinho(elem)}
-                      className={style.inputNumber}
-                    >
-                      {elem.count}
-                    </span>
+                    <span className={style.inputNumber}>{elem.count}</span>
                   </div>
                 </li>
               );
@@ -65,7 +65,7 @@ function Cart({ currentSale, setCurrentSale }) {
               <span className={style.soma}>
                 R$
                 {currentSale.reduce((a, b) => {
-                  const somaCarrinho = (a + b.price).toFixed(2);
+                  const somaCarrinho = (a + b.price * b.count).toFixed(2);
                   return parseInt(somaCarrinho);
                 }, 0)}
                 ,00

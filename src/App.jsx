@@ -13,12 +13,8 @@ function App() {
   const [currentSale, setCurrentSale] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
 
-  const [inputValor, setinputValor] = useState("");
-
   function buscarPorFiltragem(input) {
     const inputTratado = input.toLowerCase();
-
-    setinputValor(inputTratado);
 
     const filtragem = products.filter((elem) => {
       const nomeTratado = elem.name.toLowerCase();
