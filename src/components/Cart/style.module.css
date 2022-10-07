@@ -1,5 +1,5 @@
 .carrinhodeCompras {
-  width: 30%;
+  width: 35%;
   height: 22rem;
   background-color: #f5f5f5;
   right: 2rem;
@@ -44,7 +44,7 @@
 }
 
 .ulCarrinho::-webkit-scrollbar {
-  width: 12px;
+  width: 2px;
 }
 
 .ulCarrinho::-webkit-scrollbar-track {
@@ -101,6 +101,7 @@
 .cabecalhoCarrinho > h2 {
   margin-left: 20px;
   font-weight: 900;
+  font-size: 17px;
 }
 
 .removerProduto,

@@ -13,6 +13,10 @@ function App() {
   const [currentSale, setCurrentSale] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
 
+  useEffect(() => {
+    axios.get(`${urlKenzieBurger}`).then((resp) => setProducts(resp.data));
+  }, []);
+
   function buscarPorFiltragem(input) {
     const inputTratado = input.toLowerCase();
 
@@ -36,12 +40,6 @@ function App() {
           />
         ) : (
           <div className="DivPesquisaInput">
-           {/*  <div className="resultadoPesquisa">
-              <h2>
-                Resultado para: <span className="inputValor">{inputValor}</span>
-              </h2>
-              <button>Limpar busca </button>
-            </div> */}
             <ProductsList
               products={filteredProducts}
               setCartTotal={setCartTotal}
@@ -53,12 +51,9 @@ function App() {
         );
       }
     });
+
     setFilteredProducts(filtragem);
   }
-
-  useEffect(() => {
-    axios.get(`${urlKenzieBurger}`).then((resp) => setProducts(resp.data));
-  }, []);
 
   return (
     <div className="App">
@@ -93,12 +88,6 @@ function App() {
           />
         ) : (
           <div className="DivPesquisaInput">
-           {/*  <div className="resultadoPesquisa">
-              <h2>
-                Resultado para: <span className="inputValor">{inputValor}</span>
-              </h2>
-              <button>Limpar busca </button>
-            </div> */}
             <ProductsList
               products={filteredProducts}
               setCartTotal={setCartTotal}

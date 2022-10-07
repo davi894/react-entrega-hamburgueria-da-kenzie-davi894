@@ -116,7 +116,7 @@ h3 {
   }
 
   .style_cabecalhoCarrinho__wRYW9 > h2 {
-    font-size: 1.2rem;
+    font-size: 17px;
   }
 }
 @media (max-width: 861px) {
@@ -144,11 +144,11 @@ h3 {
   .style_ulProdctus__V7v0b {
     flex-wrap: nowrap;
     overflow: auto;
-    max-width: 320px;
+    max-width: 660px;
   }
 
   .style_carrinhodeCompras__T6Rwp {
-    width: 290px;
+    width: 330px;
     height: 19rem;
     margin-top: 1rem;
     margin-bottom: 3rem;

@@ -63,10 +63,9 @@ function Cart({ currentSale, setCurrentSale }) {
               <span className={style.soma}>
                 R$
                 {currentSale.reduce((a, b) => {
-                  const somaCarrinho = (a + b.price * b.count).toFixed(2);
-                  return parseInt(somaCarrinho);
+                  const somaCarrinho = (a + (b.price.toFixed(2)) * b.count).toFixed(6);
+                  return parseFloat(somaCarrinho);
                 }, 0)}
-                ,00
               </span>
             </div>
             <button
