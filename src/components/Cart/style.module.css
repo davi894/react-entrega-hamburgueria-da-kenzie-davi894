@@ -1,6 +1,7 @@
 .carrinhodeCompras {
-  width: 35%;
+  max-width: 315px;
   height: 22rem;
+  min-width: 315px;
   background-color: #f5f5f5;
   right: 2rem;
 }

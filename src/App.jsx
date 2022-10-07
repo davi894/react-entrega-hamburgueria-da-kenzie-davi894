@@ -30,25 +30,7 @@ function App() {
         return elem;
       }
       if (inputTratado === "") {
-        return !filteredProducts.length ? (
-          <ProductsList
-            products={products}
-            setCartTotal={setCartTotal}
-            cartTotal={cartTotal}
-            currentSale={currentSale}
-            setCurrentSale={setCurrentSale}
-          />
-        ) : (
-          <div className="DivPesquisaInput">
-            <ProductsList
-              products={filteredProducts}
-              setCartTotal={setCartTotal}
-              cartTotal={cartTotal}
-              currentSale={currentSale}
-              setCurrentSale={setCurrentSale}
-            />
-          </div>
-        );
+        setFilteredProducts([]);
       }
     });
 
